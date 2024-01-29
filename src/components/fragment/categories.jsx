@@ -7,8 +7,8 @@ import Bottle from "../../assets/img/bottle.svg"
 
 const Categories = () => {
   return (
-    <div className="max-w-6xl mx-auto mt-12">
-      <h1 className="text-[28px] font-bold">Categories</h1>
+    <div className="max-w-6xl mx-auto mt-12 ">
+      <h1 className="text-[28px] font-bold flex justify-center lg:justify-start">Categories</h1>
         <div className="flex flex-wrap justify-center gap-x-5">
         <CardCategories>
           <CardCategories.header image={snack1} />
