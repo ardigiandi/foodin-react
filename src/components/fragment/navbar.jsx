@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
-import Foodin from "../../assets/img/FoodIn.svg";
-import hamburger_nonactive from "../../assets/img/hamburger-nonactive.svg"
+import Foodin from "/img/FoodIn.svg";
+import hamburger_nonactive from "/img/hamburger-nonactive.svg";
 import { useState } from "react";
-import cross from "../../assets/img/cross.svg";
+import cross from "/img/cross.svg";
 import Button from "../element/button/button";
 
 const Header = () => {
   const [toogleNavbar, setToogleNavbar] = useState(false);
 
-  const email = localStorage.getItem("email")
-  const handleLogout  = () => {
-    localStorage.removeItem('email')
-    localStorage.removeItem('password')
-  }
+  const email = localStorage.getItem("email");
+  const handleLogout = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+  };
 
   return (
-    <nav className="bg-white px-5 mt-5">
-      <div className="max-w-6xl mx-auto flex flex-row justify-between py-2 items-center">
+    <nav className="bg-white mt-5">
+      <div className="max-w-6xl mx-auto flex flex-row justify-between px-5 py-2 items-center">
         <div className="order-1 sm:order-2 lg:order-1">
           <img src={Foodin} alt="" />
         </div>
@@ -56,7 +56,9 @@ const Header = () => {
             <Link to="/login">Login</Link>
           </Button> */}
           <Button className="bg-blue-500 hover:bg-blue-700 py-2 px-5 text-white rounded-xl">
-            <Link to="/login" onClick={handleLogout}>Logout</Link>
+            <Link to="/login" onClick={handleLogout}>
+              Logout
+            </Link>
           </Button>
         </div>
       </div>

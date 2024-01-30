@@ -1,6 +1,6 @@
 import Registerpage from "../components/fragment/registerpage";
 import Athlayout from "../components/layout/Athlayout";
-import registerimage from "../assets/img/Group 2.png"
+import registerimage from "/img/Group 2.png"
 
 const Register = () => {
   return (

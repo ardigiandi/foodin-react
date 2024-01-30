@@ -1,6 +1,6 @@
 import Slider from "react-slick";
-import banner1 from "../../assets/img/Banner.png";
-import banner2 from "../../assets/img/Banner 2.png";
+import banner1 from "/img/Banner.png";
+import banner2 from "/img/Banner 2.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -15,9 +15,9 @@ const Carousel = () => {
     autoplaySpeed: 4000,
   };
   return (
-    <div className=" mx-auto w-full ">
+    <div className=" max-w-6xl mx-auto">
       <Slider {...settings}
-        className="relative max-w-6xl mx-auto px-4 lg:px-0 mt-5 lg:mt-10 sm:mt-6"
+        className="relative px-4 lg:px-0 mt-5 lg:mt-10 sm:mt-6"
       >
         <div className="card">
           <img src={banner1} alt="image 1" />

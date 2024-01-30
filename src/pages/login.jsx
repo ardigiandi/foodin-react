@@ -1,6 +1,6 @@
 import Loginpage from "../components/fragment/loginpage";
 import Athlayout from "../components/layout/Athlayout";
-import loginimage from "../assets/img/Group 1.png"
+import loginimage from "/img/Group 2.png"
 
 const Login = () => {
   return (

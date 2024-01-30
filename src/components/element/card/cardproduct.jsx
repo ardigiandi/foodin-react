@@ -1,12 +1,9 @@
-import product1 from "../../../assets/img/Image Card 1.jpg"
-import Button from "../button/button"
-
 const Cardproduct = (props) => {
 
     const {children} = props;
 
     return(
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
             {children}
         </div>
     )
@@ -27,9 +24,12 @@ const body = (props) => {
 }
 
 const footer = (props) => {
-    const {children} = props;
+    const {price, handleorder, id} = props;
     return(
-        <a>{children}</a>
+        <div className="flex justify-between items-center">
+            <a>{price.toLocaleString('id-ID', {style: 'currency', currency: 'IDR'} )}</a>
+            <button className="bg-blue-500 px-3 py-2 text-white rounded-lg font-semibold" onClick={() => handleorder(id)}>Buy</button>
+        </div>
     )
 }
 

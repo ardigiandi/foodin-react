@@ -6,7 +6,7 @@ const Loginpage = () => {
     event.preventDefault();
     localStorage.setItem("email", event.target.email.value);
     localStorage.setItem("password", event.target.password.value);
-    window.location.href = "/navbar";
+    window.location.href = "/landingpage";
   };
 
   return (
