@@ -3,6 +3,7 @@ import Carousel from "../components/fragment/carousel";
 import Categories from "../components/fragment/categories"
 import Detailproduct from "../components/fragment/product";
 import Cta from "../components/fragment/ctapage";
+import Footer from "../components/fragment/footer";
 
 const Landingpage = () => {
   return (
@@ -12,6 +13,7 @@ const Landingpage = () => {
       <Categories/>
       <Detailproduct/>
       <Cta/>
+      <Footer/>
     </>
   );
 };
