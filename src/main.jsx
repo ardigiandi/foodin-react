@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './pages/login'
 import Register from './pages/register'
 import Landingpage from './pages/landingpage'
+import Dashboard from './pages/userdashboard'
 
 const router = createBrowserRouter ([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter ([
   {
     path: '/landingpage',
     element: <Landingpage/>
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard/>
   }
 ]) 
 
