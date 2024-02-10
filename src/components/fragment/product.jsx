@@ -1,67 +1,75 @@
 import Cardproduct from "../element/card/cardproduct";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const products = [
   {
-    id: "1",
+    id: 1,
     image: "/img/Image Card 1.jpg",
     name: "Canitos Snack",
     price: 12000,
   },
   {
-    id: "2",
+    id: 2,
     image: "/img/Image Card 2.jpg",
     name: "Orea Sachet",
     price: 3000,
   },
   {
-    id: "3",
+    id: 3,
     image: "/img/Image Card 3.jpg",
     name: "Coffee Powder",
     price: 14000,
   },
   {
-    id: "4",
+    id: 4,
     image: "/img/Image Card 1.jpg",
     name: "Canitos Snack",
     price: 12000,
   },
   {
-    id: "5",
+    id: 5,
     image: "/img/Image Card 2.jpg",
     name: "Orea Sachet",
     price: 3000,
   },
   {
-    id: "6",
+    id: 6,
     image: "/img/Image Card 3.jpg",
     name: "Coffee Powder",
     price: 14000,
   },
-  
 ];
 
 const Detailproduct = () => {
+  const [order, setorder] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    setorder([
+      // { id: 1, qty: 1}
+    ]);
+  }, [] )
 
-  const [ order , setorder] = useState([
-    {
-      id: "1",
-      qty: 1,
-    }
-  ])
+  useEffect (() => {
+    const sum = order.reduce((acc, item) => {
+      const product = products.find ((product) => product.id === item.id)
+      return acc + product.price * item.qty
+    }, 0)
+    setTotalPrice(sum)
+  }, [order])
+  
 
   const handleorder = (id) => {
-    if (order.find ((item) => item.id === id)) {
+    if (order.find((item) => item.id === id)) {
       setorder(
-        order.map ((item) => 
-          item.id === id ? {...item, qty: item.qty  + 1 } : item
+        order.map((item) =>
+          item.id === id ? { ...item, qty: item.qty + 1 } : item
         )
-      )
+      );
     } else {
-      setorder([...order, {id, qty: 1}])
+      setorder([...order, { id, qty: 1 }]);
     }
-  }
-  
+  };
+
   return (
     <div className="max-w-6xl mx-auto flex flex-col mt-14 gap-x-5">
       <div className="justify-between items-center flex px-4">
@@ -72,15 +80,19 @@ const Detailproduct = () => {
         {products.map((product) => (
           <Cardproduct key={product.id}>
             <Cardproduct.header image={product.image} />
-            <Cardproduct.body>{product.name}</Cardproduct.body>
-            <Cardproduct.footer price={product.price} id={product.id} handleorder={handleorder} />
+            <Cardproduct.body name={product.name} />
+            <Cardproduct.footer
+              price={product.price}
+              id={product.id}
+              handleorder={handleorder}
+            />
           </Cardproduct>
         ))}
       </div>
       <div className="mt-10">
         <h1 className="text-2xl font-bold mb-5">Order</h1>
         <table className="w-full text-left table-auto border-black border border-spacing-x-5 mt-7 mb-10">
-          <thead >
+          <thead>
             <tr>
               <th>Product</th>
               <th>Price</th>
@@ -90,16 +102,37 @@ const Detailproduct = () => {
           </thead>
           <tbody>
             {order.map((item) => {
-              const product = products.find ((product) => product.id === item.id)
-              return(
+              const product = products.find(
+                (product) => product.id === item.id
+              );
+              return (
                 <tr key={item.id}>
                   <td>{product.name}</td>
-                  <td>{product.price.toLocaleString("id-ID", {style: "currency" , currency: "IDR",})}</td>
+                  <td>
+                    {product.price.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    })}
+                  </td>
                   <td>{item.qty}</td>
-                  <td>{(item.qty * product.price).toLocaleString("id-ID", {style: "currency" , currency: "IDR",})}</td>
+                  <td>
+                    {(item.qty * product.price).toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    })}
+                  </td>
                 </tr>
-              )
+              );
             })}
+            <tr>
+              <td colSpan={3}>Total Price</td>
+              <td>
+                {totalPrice.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    })}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

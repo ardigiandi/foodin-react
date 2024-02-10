@@ -64,7 +64,7 @@ const Table = () => {
           <th>Qty</th>
           <th>Total Price</th>
           <th>Status</th>
-          <th>Action</th>
+          <th>Action</th>   
         </tr>
       </thead>
       <tbody>

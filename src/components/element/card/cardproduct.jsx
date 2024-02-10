@@ -17,9 +17,9 @@ const header = (props) => {
 }
 
 const body = (props) => {
-    const {children} = props;
+    const {name} = props;
     return(
-        <p className="py-2">{children}</p>
+        <p className="py-2">{name}</p>
     )
 }
 
